@@ -1,0 +1,46 @@
+﻿@model ogrenci_kayit.Models.Student
+
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/DefaultLayout.cshtml";
+}
+
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">@Html.DisplayNameFor(model=>model.StudentName)</th>
+                        <th scope="col">@Html.DisplayNameFor(model=>model.StudentSurname)</th>
+                        <th scope="col">@Html.DisplayNameFor(model=>model.Department)</th>
+                        <th scope="col">@Html.DisplayNameFor(model=>model.Age)</th>
+                        <th scope="col">@Html.DisplayNameFor(model=>model.StudentNumber)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                        <th scope="col">@Html.DisplayFor(model=>model.StudentName)</th>
+                        <th scope="col">@Html.DisplayFor(model=>model.StudentSurname)</th>
+                        <th scope="col">@Html.DisplayFor(model=>model.Department)</th>
+                        <th scope="col">@Html.DisplayFor(model=>model.Age)</th>
+                        <th scope="col">@Html.DisplayFor(model=>model.StudentNumber)</th>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br />
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="StudentNumber" />
+        <input type="submit" value="Sil" class="btn btn-danger" onclick="return confirm('Silmek istediğinizden emin misiniz?')" /> |
+        <a asp-action="Index" class="btn btn-secondary">Listeye Geri Dön</a>
+    </form>
+</div>
+
+
+
+

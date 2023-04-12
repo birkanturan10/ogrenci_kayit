@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ogrenci_kayit.Models.Student>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/DefaultLayout.cshtml";
+}
+
+<br />
+
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a asp-action="Create" class="btn btn-primary">Yeni Öğrenci</a>
+
+    @Html.AntiForgeryToken()
+</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+<table class="table table-primary">
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model=>model.StudentID)</th>
+            <th scope="col">@Html.DisplayNameFor(model=>model.StudentName)</th>
+            <th scope="col">@Html.DisplayNameFor(model=>model.StudentSurname)</th>
+            <th scope="col">@Html.DisplayNameFor(model=>model.Department)</th>
+            <th scope="col">@Html.DisplayNameFor(model=>model.Age)</th>
+            <th scope="col">@Html.DisplayNameFor(model=>model.StudentNumber)</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@Html.DisplayFor(modelItem=>item.StudentID)</th>
+                <td>@Html.DisplayFor(modelItem=>item.StudentName)</td>
+                <td>@Html.DisplayFor(modelItem=>item.StudentSurname)</td>
+                <td>@Html.DisplayFor(modelItem=>item.Department)</td>
+                <td>@Html.DisplayFor(modelItem=>item.Age)</td>
+                <td>@Html.DisplayFor(modelItem=>item.StudentNumber)</td>
+                <td><a asp-action="Update" asp-route-id="@item.StudentID" class="btn btn-primary">Güncelle</a></td>
+                <th><a asp-action="Delete" asp-route-id="@item.StudentID" class="btn btn-danger">Sil</a></th>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+    </div>
+</div>
